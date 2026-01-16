@@ -20,9 +20,6 @@ payload = {
     "timestamp": datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z"),
 }
 
-# this is for test
-print(payload)
-
 # =========================
 # Canonical JSON encoding
 # - sorted keys
