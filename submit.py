@@ -3,6 +3,7 @@ import hmac
 import hashlib
 import requests
 from datetime import datetime, timezone
+import os
 
 # =================================#
 # Configuration (EDIT IF REQUIRED) #
@@ -15,7 +16,7 @@ payload = {
     "email": "kevin.lin.gurudev@outlook.com",
     "resume_link": "https://github.com/fullstack-dev-web/task-for-b12/resume/Kevin_Lin_Resume.pdf",
     "repository_link": "https://github.com/fullstack-dev-web/task-for-b12",
-    "action_run_link": "https://github.com/fullstack-dev-web/task-for-b12/actions/runs",
+    "action_run_link": f"https://github.com/fullstack-dev-web/task-for-b12/actions/runs/{os.environ.get("GITHUB_RUN_NUMBER")}",
     "timestamp": datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z"),
 }
 
