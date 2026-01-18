@@ -27,6 +27,6 @@ jobs:
 
       - name: Submit application to B12
         env:
-          SINGING_SECRET: ${{ secrets.SINGING_SECRET }}
+          SINGING_SECRET: ${{ secrets.SIGNING_SECRET }}
         run: |
           python submit.py
