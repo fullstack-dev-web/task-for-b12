@@ -1,32 +1,32 @@
-#name: B12 Application Submission
-#
-#on:
-#  workflow_dispatch:
-#  push:
-#    branches:
-#      - main
-#
-#jobs:
-#  submit:
-#    runs-on: ubuntu-latest
-#    environment: B12
-#
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v4
-#
-#      - name: Set up Python
-#        uses: actions/setup-python@v5
-#        with:
-#          python-version: "3.11"
-#
-#      - name: Install project dependencies
-#        run: |
-#          python -m pip install --upgrade pip
-#          pip install .
-#
-#      - name: Submit application to B12
-#        env:
-#          SINGING_SECRET: ${{ secrets.SIGNING_SECRET }}
-#        run: |
-#          python submit.py
+name: B12 Application Submission
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    environment: B12
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install project dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install .
+
+      - name: Submit application to B12
+        env:
+          SIGNING_SECRET: ${{ secrets.SIGNING_SECRET }}
+        run: |
+          python submit.py
