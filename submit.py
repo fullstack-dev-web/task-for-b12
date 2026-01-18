@@ -6,8 +6,7 @@ from datetime import datetime, timezone
 import os
 
 # treat like a secret
-SIGNING_SECRET = os.environ.get("SIGNING_SECRET")
-print("#######", SIGNING_SECRET)
+SIGNING_SECRET = os.environ.get("SIGNING_SECRET").encode("utf-8")
 # =================================#
 # Configuration (EDIT IF REQUIRED) #
 # =================================#
@@ -41,7 +40,7 @@ json_body = json.dumps(
 # HMAC-SHA256 signature
 # =========================
 digest = hmac.new(
-    SIGNING_SECRET.encode("utf-8"),
+    SIGNING_SECRET,
     json_body,
     hashlib.sha256
 ).hexdigest()
