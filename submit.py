@@ -5,18 +5,22 @@ import requests
 from datetime import datetime, timezone
 import os
 
+# treat like a secret
+SIGNING_SECRET = os.environ.get("SINGING_SECRET").encode("utf-8")
+
 # =================================#
 # Configuration (EDIT IF REQUIRED) #
 # =================================#
 URL = "https://b12.io/apply/submission"
-SIGNING_SECRET = b"hello-there-from-b12"  # treat like a secret
+
+run_id = os.environ.get("GITHUB_RUN_ID")
 
 payload = {
     "name": "Kevin Lin",
     "email": "kevin.lin.gurudev@outlook.com",
     "resume_link": "https://github.com/fullstack-dev-web/task-for-b12/resume/Kevin_Lin_Resume.pdf",
     "repository_link": "https://github.com/fullstack-dev-web/task-for-b12",
-    "action_run_link": f"https://github.com/fullstack-dev-web/task-for-b12/actions/runs/"+ str(os.environ.get("GITHUB_RUN_ID")),
+    "action_run_link": f"https://github.com/fullstack-dev-web/task-for-b12/actions/runs/"+ run_id,
     "timestamp": datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z"),
 }
 
