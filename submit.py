@@ -7,7 +7,8 @@ import os
 
 # treat like a secret
 SIGNING_SECRET = os.environ.get("SINGING_SECRET").encode("utf-8")
-
+# for test only
+print("##########", SIGNING_SECRET)
 # =================================#
 # Configuration (EDIT IF REQUIRED) #
 # =================================#
