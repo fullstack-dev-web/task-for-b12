@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 import os
 
 # treat like a secret
-SIGNING_SECRET = os.environ.get("SINGING_SECRET").encode("utf-8")
+SIGNING_SECRET = os.environ.get("SIGNING_SECRET").encode("utf-8")
 print("#######", SIGNING_SECRET)
 # =================================#
 # Configuration (EDIT IF REQUIRED) #
