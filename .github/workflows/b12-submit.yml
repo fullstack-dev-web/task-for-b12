@@ -25,5 +25,7 @@ jobs:
           pip install .
 
       - name: Submit application to B12
+        env:
+          SINGING_SECRET: ${{ secrets.SINGING_SECRET }}
         run: |
           python submit.py
